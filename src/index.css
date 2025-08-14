@@ -28,15 +28,15 @@ html.dark {
     background-color: rgb(var(--color-box));
   }
 
-  .bg-heading-1 {
+  .text-heading-1 {
     color: rgb(var(--heading-1));
   }
 
-  .bg-heading-2 {
+  .text-heading-2 {
     color: rgb(var(--heading-2));
   }
 
-  .bg-heading-3 {
+  .text-heading-3 {
     color: rgb(var(--heading-3));
   }
 }

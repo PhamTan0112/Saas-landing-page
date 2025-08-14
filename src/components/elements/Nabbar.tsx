@@ -2,6 +2,7 @@ import { Container } from "../shared/Container";
 import logo from "../../assets/icon.svg";
 import { NavItem } from "../shared/NavItem";
 import { BtnLink } from "../shared/BtnLink";
+import { useThemeStore } from "../../store/ThemeStore";
 const navItems = [
   { href: "#", text: "Home" },
   { href: "#services", text: "Services" },
@@ -9,6 +10,7 @@ const navItems = [
   { href: "#features", text: "Features" },
 ];
 export const Navbar = () => {
+  const { toggleTheme, theme } = useThemeStore();
   return (
     <header className="absolute inset-x-0 top-0 z-50 py-6">
       <Container>
@@ -34,24 +36,47 @@ export const Navbar = () => {
             </div>
           </div>
           <div className="min-w-max flex items-center gap-x-3">
-            <button className="outline-hidden flex relative text-heading-2 rounded-full p-2 lg:p-3 border border-box-border cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25
+            <button
+              onClick={toggleTheme}
+              className="outline-hidden flex relative text-heading-2 rounded-full p-2 lg:p-3 border border-box-border cursor-pointer"
+            >
+              {theme === "dark" ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25
        m.386 6.364l-1.591-1.591M12 18.75V21m-6.364-2.636
        l1.591-1.591M3 12h2.25m-.386-6.364l1.591 1.591M15.75 12a3.75 
        3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                />
-              </svg>
+                  />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25
+       m.386 6.364l-1.591-1.591M12 18.75V21m-6.364-2.636
+       l1.591-1.591M3 12h2.25m-.386-6.364l1.591 1.591M15.75 12a3.75 
+       3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                  />
+                </svg>
+              )}
             </button>
           </div>
         </nav>
