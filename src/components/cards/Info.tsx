@@ -1,22 +1,20 @@
 import React from "react";
 import { Paragraph } from "../shared/Paragraph";
-interface ServiceProps {
+interface InfoProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  children?: React.ReactNode;
 }
-export const Service = ({ title, description, icon }: ServiceProps) => {
+export const Info = ({ title, description, children }: InfoProps) => {
   return (
     <div className="p-5 sm:p-6 lg:p-8 rounded-3xl border border-box-border bg-box-bg shadow-lg shadow-box-shadow relative overflow-hidden">
       <div className="rounded-xl bg-body p-3 text-heading-1 w-max relative">
-        {icon}
+        {children}
       </div>
-      <div className="mt-6 space-y-4 relative">
-        <h2 className="text-lg md:text-xl font-semibold text-heading-2">
-          {title}
-        </h2>
-        <Paragraph>{description}</Paragraph>
-      </div>
+      <h2 className="text-heading-2 w-max relative font-semibold md:text-xl">
+        {title}
+      </h2>
+      <Paragraph>{description}</Paragraph>
     </div>
   );
 };
